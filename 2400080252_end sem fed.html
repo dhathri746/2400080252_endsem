@@ -1,0 +1,39 @@
+// ===== Reusable UI Components in One File =====
+
+export function Button({ text, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className="px-3 py-2 bg-blue-600 text-white rounded"
+    >
+      {text}
+    </button>
+  );
+}
+
+export function Card({ title, children }) {
+  return (
+    <div className="p-4 border rounded shadow">
+      <h3>{title}</h3>
+      {children}
+    </div>
+  );
+}
+
+export function Input({ label, ...props }) {
+  return (
+    <div className="mb-2">
+      <label>{label}</label>
+      <input {...props} className="border p-2 rounded w-full" />
+    </div>
+  );
+}
+
+export function Modal({ open, children }) {
+  if (!open) return null;
+  return (
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
+      <div className="bg-white p-4 rounded">{children}</div>
+    </div>
+  );
+}
